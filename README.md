@@ -5,17 +5,20 @@ A C++ OOP chess engine with AI integration featuring minimax algorithm with alph
 ## Features
 
 ### Core Chess Engine
+
 - **Complete Rule Implementation**: All standard chess rules including castling, en passant, and pawn promotion
 - **Move Validation**: Legal move generation with check/checkmate detection
 - **Game State Management**: Full undo/redo capability with state history
 
 ### OOP Design Showcase
+
 - **Polymorphic Piece Hierarchy**: Abstract base class with virtual functions
 - **RAII Memory Management**: Smart pointers for automatic memory management
 - **Clean Architecture**: Separation of concerns across Board, Game, Player classes
 - **Extensible Design**: Easy to add new piece types or AI algorithms
 
 ### AI Integration
+
 - **Minimax Algorithm**: Game tree search with alpha-beta pruning
 - **Position Evaluation**: Material count + mobility heuristics
 - **Configurable Depth**: Adjustable AI difficulty (1-5 levels)
@@ -167,9 +170,9 @@ classDiagram
     Board o-- Piece : contains
     Board *-- GameState : composition
     Board o-- Move : uses
-    
+  
     Move *-- Position : composition
-    
+  
     Game *-- Board : composition
     Game o-- Player : uses
     Game --> Move : creates
@@ -178,6 +181,7 @@ classDiagram
 ```
 
 ### Key Design Patterns
+
 - **Strategy Pattern**: Different AI difficulty implementations
 - **Polymorphism**: Virtual move generation per piece type
 - **RAII**: Automatic resource management
@@ -185,28 +189,29 @@ classDiagram
 
 ## Performance & Benchmarks
 
-### 🏅 **Overall Rating: ⭐⭐⭐ EXCELLENT (Grade A-: 87.5/100)**
-
 ### 🧪 **Move Generation Validation (Perft Tests)**
+
 **Result: ✅ 100% ACCURACY** - All tests passed with exact match to standard values
 
-| Depth | Expected Nodes | Actual Nodes | Time (s) | Nodes/Sec | Status |
-|-------|----------------|--------------|----------|-----------|--------|
+| Depth | Expected Nodes | Actual Nodes | Time (s) | Nodes/Sec | Status  |
+| ----- | -------------- | ------------ | -------- | --------- | ------- |
 | 1     | 20             | 20           | 0.000    | 67K       | ✅ PASS |
 | 2     | 400            | 400          | 0.003    | 146K      | ✅ PASS |
 | 3     | 8,902          | 8,902        | 0.063    | 142K      | ✅ PASS |
 | 4     | 197,281        | 197,281      | 2.132    | 93K       | ✅ PASS |
 
 ### ⚡ **AI Search Performance**
+
 **Peak Performance: ~170K nodes/second**
 
-| Depth | Search Time | Nodes/Sec | Real-World Use |
-|-------|-------------|-----------|----------------|
+| Depth | Search Time | Nodes/Sec | Real-World Use   |
+| ----- | ----------- | --------- | ---------------- |
 | 1     | 0.005s      | ~7K nps   | Instant response |
 | 2     | 0.108s      | ~11K nps  | Interactive play |
 | 3     | 0.253s      | ~170K nps | Tournament ready |
 
 ### 📊 **Technical Metrics**
+
 - **Lines of Code**: 1,634 (substantial project)
 - **Classes**: 14 (good OOP design)
 - **Virtual Functions**: 7 (proper polymorphism)
@@ -214,22 +219,19 @@ classDiagram
 - **Memory Leaks**: 0 (RAII pattern)
 
 ### 🎖️ **Industry Comparison**
-| Engine Category | Typical NPS | Checkmate++ Result |
-|-----------------|-------------|-------------------|
-| Educational     | 1K - 10K    | ✅ **Exceeds** (170K) |
-| Amateur/Hobby   | 10K - 100K  | ✅ **Exceeds** (170K) |
-| Tournament Entry| 100K - 1M   | ✅ **Meets** (170K) |
+
+| Engine Category  | Typical NPS | Checkmate++ Result         |
+| ---------------- | ----------- | -------------------------- |
+| Educational      | 1K - 10K    | ✅**Exceeds** (170K) |
+| Amateur/Hobby    | 10K - 100K  | ✅**Exceeds** (170K) |
+| Tournament Entry | 100K - 1M   | ✅**Meets** (170K)   |
 
 ### 🏆 **Professional Assessment**
+
 **Estimated Playing Strength**: ~1200-1400 Elo (Club level)
 
-**Suitable For**:
-- ✅ Technical interviews at software companies
-- ✅ Portfolio demonstrations for C++ expertise  
-- ✅ Academic projects showcasing AI algorithms
-- ✅ Game development portfolio pieces
-
 **Demonstrated Skills**:
+
 - Advanced algorithm implementation (minimax, alpha-beta)
 - Object-oriented design with inheritance and polymorphism
 - Memory management with modern C++ practices
@@ -255,12 +257,14 @@ make clean
 ## Usage
 
 The engine supports multiple game modes:
+
 1. **Human vs Human**: Two players take turns
 2. **Human vs AI**: Play against the computer
 3. **AI vs Human**: Computer plays white
 4. **AI vs AI**: Watch two AIs play each other
 
 ### Move Format
+
 Enter moves in algebraic notation: `e2e4` (from-to)
 For pawn promotion, add the piece: `e7e8q` (promote to queen)
 Type `quit` to exit at any time.
